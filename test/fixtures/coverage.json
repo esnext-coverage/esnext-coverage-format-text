@@ -1,0 +1,102 @@
+{
+  "foo.js": {
+    "path": "foo.js",
+    "locations": [
+      {
+        "id": 0,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 10
+          }
+        },
+        "tags": ["statement"],
+        "count": 1
+      },
+      {
+        "id": 1,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 10
+          }
+        },
+        "tags": ["expression"],
+        "count": 1
+      },
+      {
+        "id": 2,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 10
+          }
+        },
+        "tags": ["function"],
+        "count": 1
+      }
+    ]
+  },
+  "bar.js": {
+    "path": "bar.js",
+    "locations": [
+      {
+        "id": 0,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 10
+          }
+        },
+        "tags": ["statement"],
+        "count": 0
+      },
+      {
+        "id": 1,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 10
+          }
+        },
+        "tags": ["expression"],
+        "count": 0
+      },
+      {
+        "id": 2,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 10
+          }
+        },
+        "tags": ["function"],
+        "count": 0
+      }
+    ]
+  }
+}

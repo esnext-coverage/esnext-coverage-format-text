@@ -1,0 +1,42 @@
+{
+  "name": "esnext-coverage-format-text",
+  "version": "0.0.0",
+  "description": "esnext-coverage output formatter to human-readable text",
+  "main": "dist/index.js",
+  "scripts": {
+    "transpile": "babel src --out-dir dist",
+    "lint": "eslint --ignore-path .gitignore .",
+    "spec": "mocha --slow 200 -r esnext-coverage test/spec/**/*.spec.js",
+    "test": "npm run lint && npm run spec",
+    "prepublish": "npm run test && npm run transpile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olegskl/esnext-coverage-format-text.git"
+  },
+  "keywords": [
+    "coverage",
+    "esnext-coverage",
+    "text"
+  ],
+  "author": "Oleg Sklyanchuk <sklyanchuk@gmail.com> (http://olegskl.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olegskl/esnext-coverage-format-text/issues"
+  },
+  "homepage": "https://github.com/olegskl/esnext-coverage-format-text",
+  "dependencies": {
+    "esnext-coverage-analytics": "^0.0.2",
+    "chalk": "^1.1.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.4.0",
+    "eslint-config-meetic": "^2.0.0",
+    "esnext-coverage": "^0.0.1",
+    "mocha": "^3.0.2"
+  }
+}
