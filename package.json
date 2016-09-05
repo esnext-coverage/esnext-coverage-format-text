@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/olegskl/esnext-coverage-format-text.git"
+    "url": "https://github.com/esnext-coverage/esnext-coverage-format-text.git"
   },
   "keywords": [
     "coverage",
@@ -22,9 +22,9 @@
   "author": "Oleg Sklyanchuk <sklyanchuk@gmail.com> (http://olegskl.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/olegskl/esnext-coverage-format-text/issues"
+    "url": "https://github.com/esnext-coverage/esnext-coverage-format-text/issues"
   },
-  "homepage": "https://github.com/olegskl/esnext-coverage-format-text",
+  "homepage": "https://github.com/esnext-coverage/esnext-coverage-format-text",
   "dependencies": {
     "esnext-coverage-analytics": "^0.0.2",
     "chalk": "^1.1.3"
