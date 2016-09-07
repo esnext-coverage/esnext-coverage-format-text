@@ -3,7 +3,7 @@
  * @module services/compute-metrics
  */
 
-import {tags, metrics} from 'esnext-coverage-analytics';
+import {tags, metrics, lines} from 'esnext-coverage-analytics';
 
 /**
  * Code coverage tags used in the report.
@@ -13,8 +13,7 @@ import {tags, metrics} from 'esnext-coverage-analytics';
 const tagsToSelect = [
   'statement',
   'branch',
-  'function',
-  'line'
+  'function'
 ];
 
 /**
@@ -24,7 +23,7 @@ const tagsToSelect = [
  * @return {Object} Empty metrics.
  */
 function createEmptyMetrics(tagNameList) {
-  return tagNameList.reduce((result, tagName) => {
+  return tagNameList.concat('line').reduce((result, tagName) => {
     result[tagName] = {covered: 0, total: 0};
     return result;
   }, {});
@@ -54,12 +53,15 @@ export default function computeMetrics(coverage) {
 
   Object.keys(coverage).forEach(fileName => {
     const {locations} = coverage[fileName];
-    const tagStats = tags(locations, tagsToSelect);
+    const locationsByTag = tags(locations, tagsToSelect);
+    const lineMetrics = metrics(lines(locations));
 
-    result.filesMetrics[fileName] = {};
-    Object.keys(tagStats).forEach(tagName => {
-      const tagData = tagStats[tagName];
-      const {covered, total} = metrics(tagData);
+    result.filesMetrics[fileName] = {line: lineMetrics};
+    result.projectMetrics.line.covered += lineMetrics.covered;
+    result.projectMetrics.line.total += lineMetrics.total;
+    Object.keys(locationsByTag).forEach(tagName => {
+      const tagLocations = locationsByTag[tagName];
+      const {covered, total} = metrics(tagLocations);
       result.projectMetrics[tagName].covered += covered;
       result.projectMetrics[tagName].total += total;
       result.filesMetrics[fileName][tagName] = {covered, total};
