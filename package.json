@@ -34,9 +34,9 @@
     "babel-core": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
     "chai": "^3.5.0",
-    "eslint": "^3.4.0",
+    "eslint": "^3.5.0",
     "eslint-config-meetic": "^2.0.0",
-    "esnext-coverage": "^0.0.2",
+    "esnext-coverage": "^0.0.3",
     "mocha": "^3.0.2"
   }
 }
