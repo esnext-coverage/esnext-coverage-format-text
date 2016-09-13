@@ -74,7 +74,7 @@ function findFilesFailingThresholds(fileMetricsIndex, thresholds) {
   return Object.keys(fileMetricsIndex)
     .filter(fileName => {
       const fileMetrics = fileMetricsIndex[fileName];
-      return !areMetricsAboveThresholds(fileMetrics, thresholds);
+      return !areMetricsAboveThresholds(fileMetrics, thresholds || {});
     })
     .map(fileName => {
       return {

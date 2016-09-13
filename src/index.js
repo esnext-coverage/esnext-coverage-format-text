@@ -14,6 +14,17 @@ import {
 } from './services/check-against-thresholds';
 
 /**
+ * Determines validity of the given thresholds configuration.
+ * @param {*} thresholds - Thresholds configuration to validate.
+ * @return {Boolean} True if valid, false otherwise.
+ */
+function isValidThresholdsConfig(thresholds) {
+  return thresholds &&
+    typeof thresholds === 'object' &&
+    Object.keys(thresholds).length > 0;
+}
+
+/**
  * Text reporter for esnext-coverage-compatible results.
  * @param {Object} coverage - esnext-coverage-compatible code coverage.
  * @param {Object} options - Options.
@@ -22,12 +33,17 @@ import {
  * @return {String} Report ready to be written to stdout.
  */
 module.exports = function textReporter(coverage, options = {}) {
-  const {environment = {}, thresholds = {global: {}, local: {}}} = options;
+  const {environment = {}, thresholds = {}} = options;
   const {projectMetrics, filesMetrics} = computeMetrics(coverage);
-  const isGlobalSuccess = areMetricsAboveThresholds(projectMetrics, thresholds.global);
-  const isLocalSuccess = areFilesMetricsAboveThresholds(filesMetrics, thresholds.local);
-  const isOverallSuccess = isGlobalSuccess && isLocalSuccess;
-  const reportSummary = createReportSummary(isOverallSuccess, environment);
+
+  const isGlobalSuccess = isValidThresholdsConfig(thresholds.global) ?
+    areMetricsAboveThresholds(projectMetrics, thresholds.global) :
+    null;
+  const isLocalSuccess = isValidThresholdsConfig(thresholds.local) ?
+    areFilesMetricsAboveThresholds(filesMetrics, thresholds.local) :
+    null;
+
+  const reportSummary = createReportSummary(environment, isGlobalSuccess, isLocalSuccess);
 
   return reportWrap([
     reportSummary,

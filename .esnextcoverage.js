@@ -7,5 +7,13 @@ module.exports = {
       },
       console: true
     }
-  ]
+  ],
+  thresholds: {
+    global: {
+      statement: 30
+    },
+    local: {
+      statement: 15
+    }
+  }
 };

@@ -32,7 +32,7 @@ const tagLabel = {
  * @param {Object} thresholds - Thresholds.
  * @return {Function} Tag metrics reporter.
  */
-function tagMetricsReporterFactory(metrics, thresholds) {
+function tagMetricsReporterFactory(metrics, thresholds = {}) {
 
   /**
    * Individual tag metrics reporter.
@@ -47,6 +47,15 @@ function tagMetricsReporterFactory(metrics, thresholds) {
     const {covered, total} = tagStats;
     const percentage = total ? toRoundedPercentage(covered / total) : 100;
     const tagThreshold = thresholds[tagName];
+
+    if (!tagThreshold) {
+      return [
+        `${tagLabel[tagName]}:`,
+        `${percentage}%`,
+        `(covered ${covered}/${total})`
+      ].join(' ');
+    }
+
     const highlight = percentage >= tagThreshold ? optimal : failed;
 
     return [
