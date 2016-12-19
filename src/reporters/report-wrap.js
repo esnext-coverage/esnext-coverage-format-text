@@ -17,7 +17,7 @@ const doubleLineBreak = '='.repeat(60);
  * @return {Boolean} True if not empty, false otherwise.
  */
 function isNotEmpty(value) {
-  return !!value;
+  return Boolean(value);
 }
 
 /**

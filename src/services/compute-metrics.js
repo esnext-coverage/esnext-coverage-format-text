@@ -52,7 +52,7 @@ export default function computeMetrics(coverage) {
   const result = {projectMetrics: emptyMetrics, filesMetrics: {}};
 
   Object.keys(coverage).forEach(fileName => {
-    const {locations} = coverage[fileName];
+    const locations = coverage[fileName];
     const locationsByTag = tags(locations, tagsToSelect);
     const lineMetrics = metrics(lines(locations));
 

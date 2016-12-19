@@ -27,7 +27,7 @@
   "homepage": "https://github.com/esnext-coverage/esnext-coverage-format-text",
   "dependencies": {
     "chalk": "^1.1.3",
-    "esnext-coverage-analytics": "^0.0.3"
+    "esnext-coverage-analytics": "^0.0.5"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
@@ -35,8 +35,8 @@
     "babel-preset-es2015": "^6.14.0",
     "chai": "^3.5.0",
     "eslint": "^3.5.0",
-    "eslint-config-meetic": "^2.0.0",
-    "esnext-coverage": "^0.0.3",
+    "eslint-config-meetic": "^4.0.0",
+    "esnext-coverage": "^0.0.4",
     "mocha": "^3.0.2"
   }
 }

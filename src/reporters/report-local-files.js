@@ -76,12 +76,10 @@ function findFilesFailingThresholds(fileMetricsIndex, thresholds) {
       const fileMetrics = fileMetricsIndex[fileName];
       return !areMetricsAboveThresholds(fileMetrics, thresholds || {});
     })
-    .map(fileName => {
-      return {
-        name: normalizePath(fileName),
-        metrics: fileMetricsIndex[fileName]
-      };
-    });
+    .map(fileName => ({
+      name: normalizePath(fileName),
+      metrics: fileMetricsIndex[fileName]
+    }));
 }
 
 /**
