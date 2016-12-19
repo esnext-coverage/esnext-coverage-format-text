@@ -20,14 +20,14 @@ export default function createReportSummary(environment, isGlobalSuccess, isLoca
   if (typeof isGlobalSuccess !== 'boolean' && typeof isLocalSuccess !== 'boolean') {
     return `Test coverage on ${envName}`;
   }
+  if (isGlobalSuccess === false && isLocalSuccess === false) {
+    return `${failed('Failed')} test coverage on ${envName}`;
+  }
   if (isGlobalSuccess === false) {
     return `${failed('Failed')} global test coverage on ${envName}`;
   }
   if (isLocalSuccess === false) {
     return `${failed('Failed')} local test coverage on ${envName}`;
-  }
-  if (isGlobalSuccess === false && isLocalSuccess === false) {
-    return `${failed('Failed')} test coverage on ${envName}`;
   }
 
   return `${optimal('Passed')} test coverage on ${envName}`;
