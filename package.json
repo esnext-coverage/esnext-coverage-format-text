@@ -1,6 +1,6 @@
 {
   "name": "esnext-coverage-format-text",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "esnext-coverage output formatter to human-readable text",
   "main": "dist/index.js",
   "scripts": {
